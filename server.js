@@ -15,7 +15,7 @@ const io = require('socket.io')(http, {
 
 // Port to host the server down here
 
-const PORT = 2000;
+const PORT = process.env.PORT || 2000;
 //const PORT = process.env.PORT || 2000;
 http.listen(PORT, () => console.log('The server is running'));
 
