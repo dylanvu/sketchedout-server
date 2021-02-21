@@ -8,7 +8,7 @@ const io = require('socket.io')(http, {
     // Origin should be where the request is coming from
     // http://localhost:3000
     cors: {
-        origin: "https://sketchedout.herokuapp.com",
+        origin: "*",
         methods: ["GET", "POST"]
     }
 });
@@ -18,8 +18,6 @@ const io = require('socket.io')(http, {
 const PORT = 2000;
 //const PORT = process.env.PORT || 2000;
 http.listen(PORT, () => console.log('The server is running'));
-
-let roomIDlist = [];
 
 io.on('connection', (socket) => {
     console.log("A user has connected! Their socket ID is: " + socket.id);
@@ -38,7 +36,6 @@ io.on('connection', (socket) => {
     socket.on('createRequest', () => {
         var roomID = generateroomid(6)
         //console.log("Socket " + socket.id + " created room " + roomID)
-        roomIDlist.push(roomID);
         socket.emit('newRoomID', roomID); // There is an issue here where when you emit this message back, the existing client makes a new socket. It's usable, but not perfect.
         socket.join(roomID);
     })
