@@ -47,8 +47,8 @@ io.on('connection', (socket) => {
         if (rooms.has(joinRoomID) == true) {
             var iterator = rooms.get(joinRoomID).values();
             var first = iterator.next().value;
-            console.log("The person joining the room is: " + socket.id)
-            console.log("The person already in the room is: " + first);
+            // console.log("The person joining the room is: " + socket.id)
+            // console.log("The person already in the room is: " + first);
             socket.join(joinRoomID);
             socket.to(first).emit('uponJoiningload', null);
             socket.emit('newRoomID', joinRoomID);
@@ -63,7 +63,7 @@ io.on('connection', (socket) => {
     }})
 
     socket.on('updateBoard', (roomInfo) => {
-        console.log(socket.id + " has drawn on the board!")
+        // console.log(socket.id + " has drawn on the board!")
         //console.log(roomInfo.currentBoard)
         socket.to(roomInfo.roomID).emit('loadBoard', roomInfo.currentBoard)
         }
