@@ -1,0 +1,20 @@
+{
+  "name": "sketchedout-server",
+  "version": "1.0.0",
+  "description": "server for sketchedout",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vu-dylan/sketchedout-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vu-dylan/sketchedout-server/issues"
+  },
+  "homepage": "https://github.com/vu-dylan/sketchedout-server#readme"
+}
